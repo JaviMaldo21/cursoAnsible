@@ -1,0 +1,12 @@
+# Playbook:
+# tareas
+#   apt update
+#   apt upgrade
+#   creación de un usuario linux
+
+- hosts: ubuntu01
+  remote_user: root
+  gather_facts: False
+  roles:
+    - test
+    

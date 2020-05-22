@@ -1,0 +1,18 @@
+# Playbook:
+# tareas
+#   apt update
+#   apt upgrade
+#   creación de un usuario linux
+
+- hosts: all
+  remote_user: root
+  tasks:
+        - name: apt update
+          apt: update_cache=yes
+        - name: apt upgrade
+          apt: upgrade=yes
+        - name: Crear usuario
+          user:
+            name: javi
+            comment: Javier Maldonado
+    

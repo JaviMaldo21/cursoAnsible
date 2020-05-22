@@ -1,0 +1,19 @@
+- name: apt update
+  apt: 
+    update_cache: yes
+    
+- name: Instalación Curl
+  apt: 
+    name: curl
+    state: latest
+    
+- name: Instalación GIT
+  apt: 
+    name: git
+    state: latest
+
+- name: Instalación Nginx
+  apt: 
+    name: nginx
+    state: latest
+  notify: nginx_instalado

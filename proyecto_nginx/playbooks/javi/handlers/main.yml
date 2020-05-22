@@ -1,0 +1,7 @@
+---
+# handlers file for javi
+- name: Reinicio del servicio nginx
+  service:
+    name: nginx
+    state: restarted
+  listen: nginx_reconfigurado

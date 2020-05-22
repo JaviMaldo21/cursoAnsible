@@ -1,0 +1,11 @@
+- name: Configuración Nginx
+  template:
+    src: templates/minginx.conf
+    dest: /etc/nginx/conf.d/minginx.conf
+    mode: '0400'
+  notify: nginx_reconfigurado
+    
+- name: Clonar el web
+  git:
+    repo: 'https://JaviMaldo21:{{password_github}}@github.com/JaviMaldo21/proyecto-nginx.git'
+    dest: "{{nginx_web_path}}"

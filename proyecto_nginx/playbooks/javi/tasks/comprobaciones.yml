@@ -1,0 +1,19 @@
+- name: Ejecutar curl al servicio web
+  shell:
+    cmd: curl localhost:81
+  ignore_errors: yes
+  register: capturado_curl
+  
+- name: Comprobar funcionamiento del servicio de  NGINX
+  assert:
+    that:
+      - capturado_curl is succeeded
+    msg: "Nginx no está corriendo"
+    success_msg: "Nginx está corriendo"
+    
+- name: Comprobar que la configuración se está aplicando
+  assert:
+    that:
+      - "'fichero de la web' in capturado_curl.stdout"
+    msg: "Nginx no está configurado correctamente --> Ruina"
+    success_msg: "Nginx está configurado correctamente"
